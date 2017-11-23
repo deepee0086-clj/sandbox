@@ -1,4 +1,4 @@
-(ns collisions
+(ns sandbox.collisions
   (:require [clojure.spec.alpha :as s]
             [common :as common]))
 
@@ -23,7 +23,7 @@
 
 (s/def ::2d-collision (s/and ::2d-entities
                              #(= 2 (count %))))
-(s/def ::2d-collisions (s/coll-of ))
+(s/def ::2d-collisions (s/coll-of ::2d-collision))
 
 (s/fdef collisions
   :args ::2d-entities

@@ -12,7 +12,6 @@
                     :liquid-temp 70
                     :current-process :heating
                     :increase-rate 0.075}) ;deg/s
-                    
 
 (def max-filament-temp 150)
 (def liquid-increase-rate 0.05)
@@ -20,14 +19,13 @@
 (def liquid-temp-max 150)
 
 (defn heat-filament [{:keys [filament-temp increase-rate]}])
-(defn heat-filament)
 
 (defn next-filament-temp
   [{:keys [increase-rate filament-temp]
     :as state}]
   (let [next-temp (+ filament-temp increase-rate)]
-    (if (>= next-temp max-filament-temp))
-    (update state :filament-temp + increase-rate)))
+    (if (>= next-temp max-filament-temp)
+      (update state :filament-temp + increase-rate))))
 
 
 ;; Happy path
@@ -45,13 +43,3 @@
                                           :liquid-temp 70
                                           :increase-rate 0.075}))
      150)
-
-
-(assoc {:a 1} :b 2)
-(update-in {:a {:b 2}} [:a :b] + 1)
-(update {:a 1} :a)
-
-(def process-state
-  [state]
-  (-> state
-      next-filament-temp))

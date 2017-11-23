@@ -1,4 +1,4 @@
-(ns chancy
+(ns sandbox.chancy
   (:require [clojure.spec.alpha :as s]))
 
 ;; given a pool of offerings of various rarity

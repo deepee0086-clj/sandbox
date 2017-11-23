@@ -1,4 +1,4 @@
-(ns common
+(ns sandbox.common
   (:require [clojure.spec.alpha :as s]))
 
 (defn- get-spec-fn [spec-def data]
